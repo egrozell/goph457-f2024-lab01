@@ -1,5 +1,4 @@
 # goph457-f2024-lab01-stEG
-This a a project that predicts the launch angle based on velocity ratio of inital velocity and escape velocity desired altitude.
 
 
 In the root dir run
