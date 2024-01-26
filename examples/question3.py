@@ -19,14 +19,14 @@ def main():
     x_max = np.max(v_log)
     p0 = x_min*coefs[1]+coefs[0]
     p1 = x_max*coefs[1]+coefs[0]
-    r0_max = p0 + residuals[0]
-    r0_min = p0 - residuals[0]
-    r1_max = p1 + residuals[0]
-    r1_min = p1 - residuals[0]
     # uncertantity of the slope 
     var1 = np.sqrt(((np.dot(e_rho,e_rho))**2)/((len(v)-2)*(np.dot(e_v,e_v))**2))
     var2 = np.sqrt(((np.dot(e_rho,e_rho))**2*np.sum(rho_log**2))/((len(v)-2)*(np.dot(e_v,e_v))**2))
     dyr = np.sqrt(residuals[0]/(len(v_log)-2))
+    r0_max = p0 + dyr*1.96
+    r0_min = p0 - dyr*1.96
+    r1_max = p1 + dyr*1.96
+    r1_min = p1 - dyr*1.96
 
     plt.figure(1)
     plt.plot(v_log,rho_log,"ok",label="data")
@@ -37,7 +37,7 @@ def main():
     plt.xlabel("velocity_log")
     plt.legend()
     plt.title("Log of Velocity vs Log of Density")
-    plt.savefig("Log_Velocity_vs_log_density_1")
+    plt.savefig("log_Velocity_vs_log_density_1")
 
 
     print (f"""

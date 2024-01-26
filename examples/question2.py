@@ -11,14 +11,13 @@ def main():
     a_mpe= np.sqrt((np.pi*r*2)**2*(r_eps_a)**2)
     a_eps_a= r_eps_a+h_eps_a
     v = a*h
-    v_max_error = 
-    #a_max_error + np.abs(h_eps_a/h)
+    v_max_error = np.abs(2*np.pi*r*h)*r_eps_a+np.abs(np.pi*r**2)*h_eps_a
     v_mpe= np.sqrt((((np.pi*r*h*2)**2)*(r_eps_a)**2)+((np.pi*r*2)**2)*(r_eps_a)**2)
     vn = 217 
     vn_eps_a = 8
     vt = vn +v 
-    vt_max_error = vn_eps_a + (v_max_error*a)
-    vt_mpe = np.sqrt((vn_eps_a)**2 + (v_mpe*a)**2)
+    vt_max_error = vn_eps_a + (v_max_error)
+    vt_mpe = np.sqrt((vn_eps_a)**2 + (v_mpe)**2)
 
     print (f"""
     Area:                       {a}

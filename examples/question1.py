@@ -54,7 +54,7 @@ def main():
         Range within 68%                  {iii1_min} m/s - {iii1_max} m/s
 
         Range within 95%                  {iii2_min} m/s - {iii2_max} m/s
-    1iii a
+    1iii b
         mean or estimated true value      {v3ave} m/s
 
         standard deviation or uncertainty {v3std} m/s
