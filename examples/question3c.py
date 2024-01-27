@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def main():
-    v = np.array([1.85,2.01,2.97,3.71],dtype=float,)
-    rho = np.array([2.06,2.10,2.33,2.47],dtype=float,)
+    v = np.array([1.85,2.01,2.97,3.71,2.18],dtype=float,)
+    rho = np.array([2.06,2.10,2.33,2.47,3.21],dtype=float,)
     rho_log = np.log10(rho)
     v_log = np.log10(v)
     a = np.array([np.ones((len(v),)),v_log]).T
@@ -53,7 +53,7 @@ def main():
     plt.xlabel("velocity_log")
     plt.legend()
     plt.title("Log of Velocity vs Log of Density")
-    plt.savefig("log_Velocity_vs_log_density")
+    plt.savefig("log_Velocity_vs_log_density_1")
 
 
     print (f"""
