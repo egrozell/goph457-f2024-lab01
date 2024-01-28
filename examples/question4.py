@@ -23,7 +23,7 @@ def main():
     p1 = x_max*coefs[1]+coefs[0]
     # uncertantity of the slope 
     var1 = np.sqrt(((np.dot(e_y,e_y))**2)/((len(x)-2)*(np.dot(e_x,e_x))**2))
-    var2 = np.sqrt(((np.dot(e_y,e_y))**2*np.sum(y_log**2))/((len(x)-2)*(np.dot(e_x,e_x))**2))
+    var2 = np.sqrt(((np.dot(e_y,e_y))**2*np.sum(y_log**2))/(len(x)*(len(x)-2)*(np.dot(e_x,e_x))**2))
     dyr = np.sqrt(residuals[0]/(len(x_log)-2))
     r0_max = p0 + dyr*1.96
     r0_min = p0 - dyr*1.96
@@ -52,7 +52,7 @@ def main():
     plt.plot((x_min,x_max),(r0_max,r1_max),":b",label="upper bound")
     plt.plot((x_min,x_max),(r0_min,r1_min),":b",label="lower bound")
     plt.ylabel("F log")
-    plt.xlabel("phi ratio logo")
+    plt.xlabel("phi ratio log")
     plt.legend()
     plt.title("Log of phi ratio vs Log of F")
     plt.savefig("archies")
@@ -65,22 +65,14 @@ def main():
     x0m = np.float_power(np.abs(x0),m)*np.sign(x0)
 
     print (f"""
-    
-    coefs {coefs}
-    a =   {y0/(x0m)}
-    m =   {coefs[1]}
-
-    residuals {residuals}
-           
-    var1 {var1}
-
-    var2 {var2}
-
-    Standard error {dyr:.2e}
-
-    cross-validation 
-    mean {mean_cross:.2e}
-    std {std_cross:.2e}
+a =   {y0/(x0m):.2e}
+m =   {coefs[1]:.2e}
+uncertainty of the slope     {var1:.2e}
+uncertainty of the intercept {var2:.2e}
+Standard error {dyr:.2e}
+cross-validation 
+mean {mean_cross:.2e}
+std {std_cross:.2e}
     """)
 
 if __name__ == "__main__":

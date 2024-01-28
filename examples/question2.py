@@ -20,28 +20,27 @@ def main():
     vt_mpe = np.sqrt((vn_eps_a)**2 + (v_mpe)**2)
 
     print (f"""
-    Area:                       {a}
+    Area:                       {a:.03e}
         Relative Error:
-            Max error           {(a_max_error/a)} 
-            Most Probable Error {(a_mpe/a)} 
+            Max error           {(a_max_error/a):.03e}
+            Most Probable Error {(a_mpe/a):.03e}
         Absolute Error: 
-            Max error           {a_max_error} cm^2 
-            Most Probable Error {a_mpe} cm^2
-
-    Volume:                     {v}
+            Max error           {a_max_error:.03e} cm^2 
+            Most Probable Error {a_mpe:.03e} cm^2
+    Volume:                     {v:.03e}
         Relative Error:
-            Max error           {(v_max_error/v)}
-            Most Probable Error {(v_mpe/v)/a}
+            Max error           {(v_max_error/v):.03e}
+            Most Probable Error {(v_mpe/v)/a:.03e}
         Absolute Error: 
-            Max error           {v_max_error} cm^3 
-            Most Probable Error {v_mpe} cm^3
-    Volume For Both Cylinders:  {vt} cm^3
+            Max error           {v_max_error:.03e} cm^3 
+            Most Probable Error {v_mpe:.03e} cm^3
+    Volume For Both Cylinders:  {vt:.03e} cm^3
         Relative Error:
-            Max error           {(vt_max_error/vt)}
-            Most Probable Error {(vt_mpe/vt)}
+            Max error           {(vt_max_error/vt):.03e}
+            Most Probable Error {(vt_mpe/vt):.03e}
         Absolute Error: 
-            Max error           {vt_max_error} cm^3 
-            Most Probable Error {vt_mpe} cm^3
+            Max error           {vt_max_error:.03e} cm^3 
+            Most Probable Error {vt_mpe:.03e} cm^3
             """)
 
 if __name__ == "__main__":

@@ -21,7 +21,7 @@ def main():
     p1 = x_max*coefs[1]+coefs[0]
     # uncertantity of the slope 
     var1 = np.sqrt(((np.dot(e_rho,e_rho))**2)/((len(v)-2)*(np.dot(e_v,e_v))**2))
-    var2 = np.sqrt(((np.dot(e_rho,e_rho))**2*np.sum(rho_log**2))/((len(v)-2)*(np.dot(e_v,e_v))**2))
+    var2 = np.sqrt(((np.dot(e_rho,e_rho))**2*np.sum(rho_log**2))/(len(v)*(len(v)-2)*(np.dot(e_v,e_v))**2))
     dyr = np.sqrt(residuals[0]/(len(v_log)-2))
     r0_max = p0 + dyr*1.96
     r0_min = p0 - dyr*1.96
@@ -57,19 +57,13 @@ def main():
 
 
     print (f"""
-           coefs {coefs}
-
-           residuals {residuals}
-           
-           var1 {var1}
-
-           var2 {var2}
-
-           Standard error {dyr:.2e}
-
-           cross-validation 
-           mean {mean_cross:.2e}
-           std {std_cross:.2e}
+Standard error {dyr:.2e}
+k = {coefs[1]:.2e}
+uncertainty of the slope     {var1}
+uncertainty of the intercept {var2}
+cross-validation 
+mean {mean_cross:.2e}
+std {std_cross:.2e}
            """)
 
 if __name__ == "__main__":
